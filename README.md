@@ -28,9 +28,17 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain what a token is used for.
+      Tokens are given to the client after successfully signing in to a site to provide proof that the client is authorized to conduct certain actions.
 2. What steps can you take in your web apps to keep your data secure?
+      Have a user login to be issued a token that is stored locally on the client's side and then have the appp add an Authorization header to all requests, to be allowed to view/access protected resources.
 3. Describe how web servers work.
+      A physical computer(s) connected to the internet that stores code for many sites to be shared accross the world 24/7.
+      Or software on that computer that serves webpages from our projects upon request.
 4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+      Create  - Post
+      Read    - Get
+      Update  - Put
+      Destroy - Delete
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
@@ -46,12 +54,12 @@ You are expected to be able to answer questions in these areas. Your responses c
 - [X] Create a new branch: git checkout -b `<firstName-lastName>`.
 - [X] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly
 - [X] Push commits: git push origin `<firstName-lastName>`
-- [ ] **RUN** npm install at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
-- [ ] **LOOK** at all the files you've been given for this project. One important file to note is server.js. This file contains an API that you are going to be interfacing with. Below is documentation on how to interact with the API.
-- [ ] **RUN** npm start to get your API up and running on http://localhost:5000. This is the URL you're going to need to use within your React app in order to make AJAX requests for data.
- - [ ] **LOOK** at your client directory and notice it's just a plain ol' React App that we've built using create-react-app.
+- [X] **RUN** npm install at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
+- [X] **LOOK** at all the files you've been given for this project. One important file to note is server.js. This file contains an API that you are going to be interfacing with. Below is documentation on how to interact with the API.
+- [X] **RUN** npm start to get your API up and running on http://localhost:5000. This is the URL you're going to need to use within your React app in order to make AJAX requests for data.
+ - [X] **LOOK** at your client directory and notice it's just a plain ol' React App that we've built using create-react-app.
  cd into client and run npm install to retrieve the client side dependencies.
- - [ ] **RUN** npm start to fire up your React application.
+ - [X] **RUN** npm start to fire up your React application.
 
 ### Task 2: Project Requirements
 
