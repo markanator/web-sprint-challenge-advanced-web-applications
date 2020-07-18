@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Pack } from "@potion/layout";
 import { Svg, Circle } from "@potion/element";
+import { Header, Icon } from "semantic-ui-react";
+
+
 
 const Bubbles = ({ colors }) => {
   const [bubbleData, setBubbleData] = useState([]);
@@ -14,7 +17,9 @@ const Bubbles = ({ colors }) => {
 
   return (
     <div className="bubble-wrap">
-      <p>bubbles</p>
+      <Header as='h3' icon>
+        <Icon name='smile outline'/>
+        bubbles</Header>
       <Svg width={400} height={400}>
         <Pack
           data={{

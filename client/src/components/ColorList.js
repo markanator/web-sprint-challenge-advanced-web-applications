@@ -3,11 +3,13 @@ import React, { useState } from "react";
 
 import axiosWithAuth from '../utils/AxiosWithAuth';
 // import {useHistory} from 'react-router-dom';
+import {Button,Icon, Label, Input, Header} from 'semantic-ui-react';
 
 const initialColor = {
   color: "",
   code: { hex: "" }
 };
+
 
 const ColorList = ({ colors, updateColors,fetchColors }) => {
   // console.log(colors);
@@ -52,7 +54,10 @@ const ColorList = ({ colors, updateColors,fetchColors }) => {
 
   return (
     <div className="colors-wrap">
-      <p>colors</p>
+      <Header as='h3' icon>
+        <Icon name='eye dropper' />
+        Colors
+      </Header>
       <ul>
 
         {colors.map(color => (
@@ -63,7 +68,7 @@ const ColorList = ({ colors, updateColors,fetchColors }) => {
                     deleteColor(color)
                   }
                 }>
-                <b>X</b>
+                <Icon name='cancel' />
               </span>{" "}
               {color.color}
             </span>
@@ -77,19 +82,21 @@ const ColorList = ({ colors, updateColors,fetchColors }) => {
       </ul>
       {editing && (
         <form onSubmit={saveEdit}>
-          <legend>edit color</legend>
-          <label>
-            color name:
-            <input
+          <Header as='h4'>edit color</Header>
+          <Label htmlFor='color'>
+            color name:{" "}
+            <Input
+            name='color'
               onChange={e =>
                 setColorToEdit({ ...colorToEdit, color: e.target.value })
               }
               value={colorToEdit.color}
             />
-          </label>
-          <label>
-            hex code:
-            <input
+          </Label>
+          <Label htmlFor='hex'>
+            hex code:{" "}
+            <Input
+              name='hex'
               onChange={e =>
                 setColorToEdit({
                   ...colorToEdit,
@@ -97,11 +104,15 @@ const ColorList = ({ colors, updateColors,fetchColors }) => {
                 })
               }
               value={colorToEdit.code.hex}
-            />
-          </label>
+              />
+            </Label>
           <div className="button-row">
-            <button type="submit">save</button>
-            <button onClick={() => setEditing(false)}>cancel</button>
+            <Button type="submit" color='blue' icon>
+              <Icon name='save'/>
+              save</Button>
+            <Button onClick={() => setEditing(false)} icon color='grey'>
+              <Icon name='cancel'/>
+              cancel</Button>
           </div>
         </form>
       )}
