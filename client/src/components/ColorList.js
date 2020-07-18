@@ -2,16 +2,19 @@ import React, { useState } from "react";
 // import axios from "axios";
 
 import axiosWithAuth from '../utils/AxiosWithAuth';
+// import {useHistory} from 'react-router-dom';
 
 const initialColor = {
   color: "",
   code: { hex: "" }
 };
 
-const ColorList = ({ colors, updateColors }) => {
+const ColorList = ({ colors, updateColors,fetchColors }) => {
   // console.log(colors);
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
+
+  // const {push} = useHistory();
 
   const editColor = color => {
     setEditing(true);
@@ -26,6 +29,9 @@ const ColorList = ({ colors, updateColors }) => {
     axiosWithAuth()
       .put(`/colors/${colorToEdit.id}`,colorToEdit)
       .then((res)=>{
+        let copy = [...colors];
+        copy[colorToEdit.id] = res.data;
+        updateColors(copy);
         console.log(res.status,res.statusText,"Change Saved!");
       })
       .catch((err)=>console.error(err));
@@ -33,10 +39,13 @@ const ColorList = ({ colors, updateColors }) => {
 
   const deleteColor = color => {
     // make a delete request to delete this color
+
     axiosWithAuth()
-      .delete(`/colors/${colorToEdit.id}`,colorToEdit)
+      .delete(`/colors/${color.id}`,color)
       .then((res)=>{
-        console.log(res.status,res.statusText,"DELETED!");
+          // updateColors(res.data);
+          console.log(res.status,res.statusText,"DELETED!");
+          fetchColors();
       })
       .catch((err)=>console.error(err));
   };
@@ -45,6 +54,7 @@ const ColorList = ({ colors, updateColors }) => {
     <div className="colors-wrap">
       <p>colors</p>
       <ul>
+
         {colors.map(color => (
           <li key={color.color} onClick={() => editColor(color)}>
             <span>
@@ -63,6 +73,7 @@ const ColorList = ({ colors, updateColors }) => {
             />
           </li>
         ))}
+
       </ul>
       {editing && (
         <form onSubmit={saveEdit}>
