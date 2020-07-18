@@ -4,8 +4,8 @@ html,
 body,
 #root,
 .App {
-  width: 100%;
-  height: 100%;
+  width: 0 auto;
+  height: auto;
   margin: 0;
   padding: 0;
 }
@@ -18,21 +18,23 @@ body,
   svg {
     height: 100%;
   }
-}
 
-.spacer {
-  height: 100%;
-}
-
-.bubble-wrap {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+  .spacer {
+    height: 100%;
+  }
+  
+  .bubble-wrap {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
 }
 
 .colors-wrap {
   height: 100%;
   width: 300px;
+  margin: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
   ul {
@@ -47,23 +49,27 @@ body,
       width: 100%;
     }
   }
+
+  .delete {
+    color: rgb(216, 87, 87);
+  }
+  
+  .color-box {
+    height: 16px;
+    width: 16px;
+    border: 1px lightgray solid;
+    margin-right: 36px;
+    
+  }
 }
 
-.delete {
-  color: rgb(216, 87, 87);
-}
 
-.color-box {
-  height: 16px;
-  width: 16px;
-  border: 1px lightgray solid;
-  margin-right: 36px;
-}
 
 form {
   margin-top: 60px;
   display: flex;
   flex-direction: column;
+  padding-bottom: 10px;
 
   legend {
     padding-left: 40px;
@@ -97,3 +103,40 @@ form {
     margin-top: 16px;
   }
 }
+
+
+
+
+
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .navbar{
+    width: 100%;
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      margin: 0 0 36px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+    
+    li {
+      list-style: none;
+      margin-right: 10px;
+      color: #204963;
+    }
+  }
+
+  .main-container{
+    display: flex;
+    flex-direction: row;
+  }
+
+
+
+}
+
